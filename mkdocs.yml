@@ -37,28 +37,31 @@ plugins:
   - to-pdf:
       output_path: "pdf/eah.pdf"
       cover_subtitle: ""
-      toc_level: 1
+      toc_level: 2
       ordered_chapter_level: 0
 
 nav:
-  - index.md
-  - 100-model.md
-  - 110-map.md
-  - 120-scoring.md
-  - 130-diagnostic.md
-  - 140-plan.md
-  - 200-faq.md
-  - 201-faq.md
-  - 202-faq.md
-  - 203-faq.md
-  - 204-faq.md
-  - 205-faq.md
-  - 206-faq.md
-  - 207-faq.md
-  - 208-faq.md
-  - 209-faq.md
-  - 210-faq.md
-  - 211-faq.md
+  INTRO:
+    - index.md
+  MODEL:
+    - 100-model.md
+    - 110-map.md
+    - 120-scoring.md
+    - 130-diagnostic.md
+    - 140-plan.md
+  FAQ:
+    - 200-faq.md
+    - 201-faq.md
+    - 202-faq.md
+    - 203-faq.md
+    - 204-faq.md
+    - 205-faq.md
+    - 206-faq.md
+    - 207-faq.md
+    - 208-faq.md
+    - 209-faq.md
+    - 210-faq.md
+    - 211-faq.md
 
 markdown_extensions:
   - admonition
