@@ -1,4 +1,4 @@
-# ⭐ **Complexity & Uncertainty Model for Estimation Alignment**
+# **Complexity & Uncertainty Model for Estimation Alignment**
 
 *A shared model for improving predictability, reducing risk, and aligning estimation across all stages of delivery.*
 

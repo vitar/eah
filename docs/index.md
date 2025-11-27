@@ -1,4 +1,4 @@
-# ⭐ **Estimation Alignment Hub**
+# **Estimation Alignment Hub**
 
 *A unified system for improving predictability, reducing delivery risk, and aligning expectations across the full software lifecycle.*
 

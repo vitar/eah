@@ -1,4 +1,4 @@
-# ⭐ **Complexity & Uncertainty Scoring Framework**
+# **Complexity & Uncertainty Scoring Framework**
 
 *A practical method to quantify scope, detect drift early, and link RFP → Discovery → Delivery.*
 

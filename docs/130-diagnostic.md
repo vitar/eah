@@ -1,4 +1,4 @@
-# ⭐ **Estimation & Delivery Diagnostic**
+# **Estimation & Delivery Diagnostic**
 
 *A structured way to identify where estimation alignment breaks, why drift happens, and how to intervene early.*
 

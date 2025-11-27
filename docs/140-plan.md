@@ -1,4 +1,4 @@
-# ⭐ **Implementation Stages Plan**
+# **Implementation Stages Plan**
 
 *A structured rollout of the Complexity & Uncertainty Estimation Model across the organization.*
 
