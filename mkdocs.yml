@@ -41,15 +41,15 @@ plugins:
       ordered_chapter_level: 0
 
 nav:
-  INTRO:
+  - INTRO:
     - index.md
-  MODEL:
+  - MODEL:
     - 100-model.md
     - 110-map.md
     - 120-scoring.md
     - 130-diagnostic.md
     - 140-plan.md
-  FAQ:
+  - FAQ:
     - 200-faq.md
     - 201-faq.md
     - 202-faq.md
