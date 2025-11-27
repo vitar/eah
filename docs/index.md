@@ -160,7 +160,7 @@ Use the pages in the following sequence:
 3. **Review [The Scoring](120-scoring.md)** → understand scoring mechanics and baseline creation
 4. **Use [The Diagnostic](130-diagnostic.md)** → assess current project health
 5. **Share [The Plan](140-plan.md)** → plan adoption with your leadership
-5. **Read [The FAQ](150-faq.md)** → find answers from different perspectives
+5. **Read [The FAQ](200-faq.md)** → find answers from different perspectives
 
 This sequence mirrors the natural flow of learning and change.
 
