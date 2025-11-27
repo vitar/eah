@@ -1,0 +1,121 @@
+name: build-and-deploy
+
+on:
+  push:
+    branches:
+      - main
+      - '**'          # build previews for all branches
+  pull_request:       # build previews for PRs too
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write     # needed to push to gh-pages
+  pages: read         # not used by this strategy
+  id-token: none
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      is_main: ${{ steps.flags.outputs.is_main }}
+      is_pr: ${{ steps.flags.outputs.is_pr }}
+      preview_path: ${{ steps.flags.outputs.preview_path }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set flags
+        id: flags
+        run: |
+          echo "is_main=$([[ '${{ github.ref }}' == 'refs/heads/main' ]] && echo true || echo false)" >> $GITHUB_OUTPUT
+          echo "is_pr=$([[ '${{ github.event_name }}' == 'pull_request' ]] && echo true || echo false)" >> $GITHUB_OUTPUT
+          if [[ '${{ github.event_name }}' == 'pull_request' ]]; then
+            echo "preview_path=previews/pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          else
+            # branch refs like feature/foo → previews/feature-foo
+            echo "preview_path=previews/${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Install system deps for WeasyPrint (PDF)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libcairo2 \
+            libpango-1.0-0 libpangoft2-1.0-0 libpangocairo-1.0-0 \
+            libgdk-pixbuf2.0-0 \
+            libffi-dev \
+            libxml2 libxslt1.1 \
+            fonts-dejavu fonts-liberation \
+            shared-mime-info
+
+      - name: Install mkdocs-to-pdf
+        run: |
+          python -m pip install --upgrade pip
+          # keep your existing pip installs elsewhere as-is
+          pip install mkdocs-to-pdf "weasyprint>=52"
+
+      - name: Build site and PDF
+        run: |
+          if [ ! -d dist/site ]; then
+            mkdocs build --strict -f mkdocs.yml --site-dir dist/site
+          fi
+
+#      - name: Build GPT knowledge bundle
+#        env:
+#          CONFIG_FILE: gpt/gpt_knowledge_sources.txt
+#          OUTPUT_FILE: dist/site/gpt/eah_gpt_knowledge.txt
+#        run: |
+#          python build_gpt_bundle.py
+
+      - name: Upload dist artifacts (for debugging)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: warn
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (empty)
+        uses: actions/checkout@v4
+
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      # PRODUCTION: main → gh-pages root
+      - name: Deploy production (main → /)
+        if: needs.build.outputs.is_main == 'true'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/site
+          clean: true                # clean root for prod deploys
+
+      # PREVIEW: branches/PRs → gh-pages:/previews/<branch-or-pr> (keep others)
+      - name: Deploy preview (branch/PR → /preview/…)
+        if: needs.build.outputs.is_main != 'true'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/site
+          target-folder: ${{ needs.build.outputs.preview_path }}
+          clean: false               # don't wipe existing previews
