@@ -1,6 +1,6 @@
 # **Quick Start Guide**
 
-## **Page 1 — The Model: Complexity & Uncertainty Framework**
+## **The Model: Complexity & Uncertainty Framework**
 
 *Why estimation fails, and the shared model that fixes it.*
 
@@ -17,7 +17,7 @@ Create a shared mental model across PM, EM, BA, PD, Architect, Dev, QA, and lead
 
 ---
 
-## **Page 2 — Translation Map**
+## **Translation Map**
 
 *How all estimation methods connect to each other.*
 
@@ -35,7 +35,7 @@ Give teams one “Rosetta Stone” that aligns FTEs, SPs, velocity, forecasting,
 
 ---
 
-## **Page 3 — Scoring Sheet Framework**
+## **Scoring Sheet Framework**
 
 *How teams quantify complexity & uncertainty in practice.*
 
@@ -53,7 +53,7 @@ Provide a consistent operational method to measure and track scope across RFP �
 
 ---
 
-## **Page 4 — Estimation & Delivery Diagnostic**
+## **Estimation & Delivery Diagnostic**
 
 *How to identify where the estimation system is breaking — and why.*
 
@@ -71,7 +71,7 @@ Offer PMs, EMs, Directors, and Practice Leads a fast way to detect misalignment 
 
 ---
 
-## **Page 5 — Implementation Stages Plan**
+## **Implementation Stages Plan**
 
 *How to adopt this model across the organization.*
 
@@ -91,7 +91,7 @@ Ensure sustainable, low-friction adoption across teams, portfolios, and leadersh
 
 ---
 
-## **3. Who Should Use This Hub**
+## **Who Should Use This Hub**
 
 This hub is designed for:
 
@@ -107,7 +107,7 @@ This hub is designed for:
 
 ---
 
-## **4. How to Navigate**
+## **How to Navigate**
 
 Use the pages in the following sequence:
 
@@ -122,7 +122,7 @@ This sequence mirrors the natural flow of learning and change.
 
 ---
 
-## **5. What This Enables**
+## **What This Enables**
 
 Once adopted, this model unlocks:
 
