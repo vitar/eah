@@ -43,6 +43,7 @@ plugins:
 nav:
   - INTRO:
     - index.md
+    - 010-quick-start.md
   - MODEL:
     - 100-model.md
     - 110-map.md
