@@ -4,7 +4,7 @@
 
 ---
 
-# **1. Purpose of the Implementation Plan**
+## **1. Purpose of the Implementation Plan**
 
 To successfully adopt the new estimation alignment model, the organization must intentionally introduce, socialize, pilot, refine, and operationalize the practices.
 
@@ -20,7 +20,7 @@ This plan ensures:
 
 ---
 
-# **2. Guiding Principles for Adoption**
+## **2. Guiding Principles for Adoption**
 
 1. **Do not replace existing estimation methods.**
    Align them.
@@ -45,13 +45,13 @@ This plan ensures:
 
 ---
 
-# **3. Rollout Stages (End-to-End Roadmap)**
+## **3. Rollout Stages (End-to-End Roadmap)**
 
 The rollout consists of **seven stages**, each with clear outcomes and roles.
 
 ---
 
-# **Stage 1 — Alignment With Practice Leads (Engineering, PM/PD/BA, Architecture)**
+## **Stage 1 — Alignment With Practice Leads (Engineering, PM/PD/BA, Architecture)**
 
 ### **Goal:**
 
@@ -71,7 +71,7 @@ Gain agreement on the new model and prepare sponsors.
 
 ---
 
-# **Stage 2 — Engineering Directors Review & Approval**
+## **Stage 2 — Engineering Directors Review & Approval**
 
 ### **Goal:**
 
@@ -105,7 +105,7 @@ Gain leadership commitment and agreement on expectations.
 
 ---
 
-# **Stage 3 — Pilot Project(s)**
+## **Stage 3 — Pilot Project(s)**
 
 ### **Goal:**
 
@@ -138,7 +138,7 @@ Choose 1–2 projects that meet majority of these conditions:
 
 ---
 
-# **Stage 4 — Refinement & Tool Finalization**
+## **Stage 4 — Refinement & Tool Finalization**
 
 ### **Goal:**
 
@@ -161,7 +161,7 @@ Adapt the model based on real pilot experience.
 
 ---
 
-# **Stage 5 — Gradual Rollout to High-Risk Projects**
+## **Stage 5 — Gradual Rollout to High-Risk Projects**
 
 ### **Goal:**
 
@@ -191,7 +191,7 @@ Adopt model across projects where teams struggle the most.
 
 ---
 
-# **Stage 6 — Rollout to Standard & Low-Risk Projects**
+## **Stage 6 — Rollout to Standard & Low-Risk Projects**
 
 ### **Goal:**
 
@@ -211,7 +211,7 @@ Normalize the model across all engagements.
 
 ---
 
-# **Stage 7 — Institutionalization**
+## **Stage 7 — Institutionalization**
 
 ### **Goal:**
 
@@ -256,7 +256,7 @@ R = Responsible, A = Accountable, C = Consulted.
 
 ---
 
-# **5. Risks & Mitigations**
+## **5. Risks & Mitigations**
 
 ### **Risk 1 — Resistance: “More overhead”**
 
@@ -297,7 +297,7 @@ Mitigation:
 
 ---
 
-# **6. Communication Strategy: How to Introduce the Change**
+## **6. Communication Strategy: How to Introduce the Change**
 
 ### **For Practice Leads:**
 
@@ -325,7 +325,7 @@ Mitigation:
 
 ---
 
-# **7. Rollout Timeline (Example)**
+## **7. Rollout Timeline (Example)**
 
 | Month    | Actions                                       |
 | -------- | --------------------------------------------- |
@@ -338,7 +338,7 @@ Mitigation:
 
 ---
 
-# **8. Success Criteria**
+## **8. Success Criteria**
 
 ### **Short-term:**
 

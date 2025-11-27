@@ -4,7 +4,7 @@
 
 ---
 
-# **1. Purpose of the Scoring Sheet**
+## **1. Purpose of the Scoring Sheet**
 
 The scoring sheet is the **operational core** of the estimation alignment framework.
 It brings consistency and transparency across stages by enabling teams to:
@@ -21,7 +21,7 @@ This sheet becomes the **single source of truth** connecting RFP, discovery, spr
 
 ---
 
-# **2. When the Scoring Sheet Is Used (Lifecycle)**
+## **2. When the Scoring Sheet Is Used (Lifecycle)**
 
 ### **Stage 1 — Pre-sales / RFP**
 
@@ -66,7 +66,7 @@ Used for:
 
 ---
 
-# **3. What Gets Scored (Granularity Levels)**
+## **3. What Gets Scored (Granularity Levels)**
 
 Depending on the stage, scoring can occur at:
 
@@ -99,7 +99,7 @@ They score **units of meaning** (EPICs/features/slices) — not tasks.
 
 ---
 
-# **4. How to Score Complexity (Drivers + Scale)**
+## **4. How to Score Complexity (Drivers + Scale)**
 
 All drivers use the same scale:
 
@@ -127,7 +127,7 @@ The nine recommended drivers:
 
 ---
 
-# **5. How to Score Uncertainty**
+## **5. How to Score Uncertainty**
 
 Same scale (0–5).
 Common drivers:
@@ -146,7 +146,7 @@ Common drivers:
 
 ---
 
-# **6. Creating the Complexity Baseline (RFP → Discovery)**
+## **6. Creating the Complexity Baseline (RFP → Discovery)**
 
 The baseline is a table of:
 
@@ -181,7 +181,7 @@ This baseline becomes the **agreed assumption set** for RFP.
 
 ---
 
-# **7. Mapping Scores to Delivery (Story Points & Slices)**
+## **7. Mapping Scores to Delivery (Story Points & Slices)**
 
 The sheet provides a mapping:
 
@@ -196,7 +196,7 @@ This prevents hidden re-estimation and velocity manipulation.
 
 ---
 
-# **8. Tracking Complexity Drift (Delivery Stage)**
+## **8. Tracking Complexity Drift (Delivery Stage)**
 
 The scoring sheet includes:
 
@@ -219,7 +219,7 @@ This replaces emotional escalations with clear data.
 
 ---
 
-# **9. Tracking Uncertainty Burn-Down**
+## **9. Tracking Uncertainty Burn-Down**
 
 Uncertainty should **decrease** as the project progresses.
 
@@ -235,7 +235,7 @@ Hidden risks have surfaced → intervene early.
 
 ---
 
-# **10. Sheet Sections (Structure for Final Tool)**
+## **10. Sheet Sections (Structure for Final Tool)**
 
 ### **Section A — Feature/EPIC List**
 
@@ -284,7 +284,7 @@ Hidden risks have surfaced → intervene early.
 
 ---
 
-# **11. Practical Guidance for Teams**
+## **11. Practical Guidance for Teams**
 
 ### **Do not “score everything.”**
 
@@ -308,7 +308,7 @@ This sheet makes complexity visible — use it.
 
 ---
 
-# **12. How This Sheet Connects to the Overall Framework**
+## **12. How This Sheet Connects to the Overall Framework**
 
 This page operationalizes:
 

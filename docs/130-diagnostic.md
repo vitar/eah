@@ -4,7 +4,7 @@
 
 ---
 
-# **1. Purpose of the Diagnostic**
+## **1. Purpose of the Diagnostic**
 
 This diagnostic exists to answer the question:
 
@@ -42,7 +42,7 @@ It supports:
 
 ---
 
-# **2. How to Use This Diagnostic**
+## **2. How to Use This Diagnostic**
 
 * Run it at **project start**, **post-discovery**, and **every 4–6 weeks**.
 * Each area is scored *individually* by key roles (PM, EM, PD, BA, Architect).
@@ -51,7 +51,7 @@ It supports:
 
 ---
 
-# **3. Diagnostic Overview**
+## **3. Diagnostic Overview**
 
 The diagnostic evaluates **four domains**:
 
@@ -64,7 +64,7 @@ Each domain contains **sub-metrics** that map to the complexity/uncertainty mode
 
 ---
 
-# **4. Domain 1 — Engagement Alignment**
+## **4. Domain 1 — Engagement Alignment**
 
 *(Does our RFP assumption set reflect reality?)*
 
@@ -112,7 +112,7 @@ Score each item **0–3**:
 
 ---
 
-# **5. Domain 2 — Delivery Preparedness**
+## **5. Domain 2 — Delivery Preparedness**
 
 *(Is discovery turning complexity into clarity?)*
 
@@ -160,7 +160,7 @@ Score each item **0–3**:
 
 ---
 
-# **6. Domain 3 — Execution Health**
+## **6. Domain 3 — Execution Health**
 
 *(Are we delivering predictably and transparently?)*
 
@@ -207,7 +207,7 @@ Score each item **0–3**:
 
 ---
 
-# **7. Domain 4 — Value Realization**
+## **7. Domain 4 — Value Realization**
 
 *(Are we delivering the right things in the right order?)*
 
@@ -242,7 +242,7 @@ Score each item **0–3**:
 
 ---
 
-# **8. Combined Diagnostic Score**
+## **8. Combined Diagnostic Score**
 
 | Total Score | Meaning                                          |
 | ----------- | ------------------------------------------------ |
@@ -255,7 +255,7 @@ This becomes your organization’s **Estimation/Delivery Health Index**.
 
 ---
 
-# **9. Diagnostic Patterns (What the Scores Reveal)**
+## **9. Diagnostic Patterns (What the Scores Reveal)**
 
 ### **Pattern A: High Execution, Low Engagement**
 
@@ -308,7 +308,7 @@ Needs immediate intervention.
 
 ---
 
-# **10. Recommended Interventions (Mapped to 3SF)**
+## **10. Recommended Interventions (Mapped to 3SF)**
 
 Based on weaknesses:
 
@@ -336,7 +336,7 @@ Based on weaknesses:
 
 ---
 
-# **11. How This Diagnostic Supports Your Rollout Strategy**
+## **11. How This Diagnostic Supports Your Rollout Strategy**
 
 This diagnostic will be used:
 
