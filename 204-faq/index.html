@@ -1,0 +1,1662 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A unified system for improving predictability, reducing delivery risk, and aligning expectations across the full software lifecycle.">
+      
+      
+        <meta name="author" content="Viktor Jevdokimov, Vilnius, Lithuania">
+      
+      
+      
+        <link rel="prev" href="../203-faq/">
+      
+      
+        <link rel="next" href="../205-faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation? - Estimation Alignment Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+    // Move the button into the actual header container on every page
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('pdf-download');
+      var target = document.querySelector('.md-header .md-header__inner');
+      if (btn && target && !target.contains(btn)) target.appendChild(btn);
+    });
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-do-we-handle-complexity-drift-without-triggering-client-escalations-or-immediate-renegotiation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Estimation Alignment Hub" class="md-header__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estimation Alignment Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+
+  <a id="pdf-download"
+     class="md-header__button md-icon"
+     href="../pdf/eah.pdf"
+     title="Download PDF"
+     aria-label="Download PDF">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
+  </a>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Estimation Alignment Hub" class="md-nav__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Estimation Alignment Hub
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Estimation Alignment Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Complexity &amp; Uncertainty Model for Estimation Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Translation Map: Connecting Estimation Methods Across the Delivery Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120-scoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Complexity &amp; Uncertainty Scoring Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130-diagnostic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Estimation &amp; Delivery Diagnostic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Implementation Stages Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../200-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How This Model Fits With Existing RFP and Fixed-Bid Estimation Processes?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Prevent Story Point Inflation or Re-Estimation Games?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../203-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-core-principle-drift-is-normal-surprises-are-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Principle: Drift Is Normal — Surprises Are Not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-causes-escalations-in-the-first-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What Causes Escalations in the First Place?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-the-complexity-model-removes-escalation-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How the Complexity Model Removes Escalation Pressure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. How the Complexity Model Removes Escalation Pressure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-baseline-makes-assumptions-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Baseline makes assumptions visible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-drift-tracking-quantifies-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Drift tracking quantifies change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-drivers-explain-why-complexity-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Drivers explain why complexity changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-uncertainty-burn-down-shows-what-was-known-vs-unknown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Uncertainty burn-down shows what was known vs unknown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-early-detection-early-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Early detection → early trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-three-stage-drift-management-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. The Three-Stage Drift Management Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. The Three-Stage Drift Management Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-internal-alignment-pm-pl-architect-ba-pd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Stage 1 — Internal Alignment (PM + PL + Architect + BA + PD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-low-friction-client-alignment-no-renegotiation-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Stage 2 — Low-Friction Client Alignment (No Renegotiation Yet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-structured-trade-off-conversation-only-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Stage 3 — Structured Trade-Off Conversation (Only If Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-this-looks-like-in-practice-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. What This Looks Like in Practice (Example)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What This Looks Like in Practice (Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-when-not-to-escalate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. When NOT To Escalate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-when-you-must-escalate-structured-not-emotional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. When You MUST Escalate (Structured, Not Emotional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-how-3sf-keeps-drift-conversations-healthy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. How 3SF Keeps Drift Conversations Healthy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. How 3SF Keeps Drift Conversations Healthy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engagement-line-client-vendor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engagement Line (client ↔ vendor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivery-line-vendor-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery Line (vendor ↔ product)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-line-product-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value Line (product ↔ client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../205-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Does This Model Scale in Multi-Team or Multi-Vendor Environments?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../206-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 How Estimation Aligns Across Dual-Track Scrum (Discovery + Delivery)?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../207-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../208-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../209-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../210-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Contradictions Between Estimation Methods — FTEs, Story Points, Flow Metrics, and Forecasts?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../211-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ When and How to Use Common Estimation Methods (T-Shirt, Story Points, PERT/Statistical PERT, etc.) — And How They Align Through the Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-core-principle-drift-is-normal-surprises-are-not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Principle: Drift Is Normal — Surprises Are Not
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-what-causes-escalations-in-the-first-place" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What Causes Escalations in the First Place?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-the-complexity-model-removes-escalation-pressure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How the Complexity Model Removes Escalation Pressure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. How the Complexity Model Removes Escalation Pressure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-baseline-makes-assumptions-visible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Baseline makes assumptions visible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-drift-tracking-quantifies-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Drift tracking quantifies change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-drivers-explain-why-complexity-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Drivers explain why complexity changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-uncertainty-burn-down-shows-what-was-known-vs-unknown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Uncertainty burn-down shows what was known vs unknown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-early-detection-early-trade-offs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Early detection → early trade-offs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-the-three-stage-drift-management-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. The Three-Stage Drift Management Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. The Three-Stage Drift Management Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-internal-alignment-pm-pl-architect-ba-pd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Stage 1 — Internal Alignment (PM + PL + Architect + BA + PD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-low-friction-client-alignment-no-renegotiation-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Stage 2 — Low-Friction Client Alignment (No Renegotiation Yet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-structured-trade-off-conversation-only-if-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ Stage 3 — Structured Trade-Off Conversation (Only If Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-what-this-looks-like-in-practice-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. What This Looks Like in Practice (Example)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. What This Looks Like in Practice (Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-when-not-to-escalate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. When NOT To Escalate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-when-you-must-escalate-structured-not-emotional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. When You MUST Escalate (Structured, Not Emotional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-how-3sf-keeps-drift-conversations-healthy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. How 3SF Keeps Drift Conversations Healthy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. How 3SF Keeps Drift Conversations Healthy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engagement-line-client-vendor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engagement Line (client ↔ vendor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivery-line-vendor-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery Line (vendor ↔ product)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-line-product-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value Line (product ↔ client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="how-do-we-handle-complexity-drift-without-triggering-client-escalations-or-immediate-renegotiation">⭐ <strong>How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?</strong><a class="headerlink" href="#how-do-we-handle-complexity-drift-without-triggering-client-escalations-or-immediate-renegotiation" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>We handle complexity drift through early detection, internal alignment, structured client conversations, and fact-based trade-offs — not by triggering immediate renegotiation.<br />
+Complexity drift is normal; surprises are not.</strong></p>
+</blockquote>
+<hr />
+<p><em>How to manage scope shifts with transparency, professionalism, and predictability — while maintaining trust.</em></p>
+<hr />
+<h2 id="1-why-this-question-matters"><strong>1. Why This Question Matters</strong><a class="headerlink" href="#1-why-this-question-matters" title="Permanent link">&para;</a></h2>
+<p>Every project experiences complexity drift:</p>
+<ul>
+<li>integrations are harder than expected</li>
+<li>dependencies move slower</li>
+<li>unclear requirements expand</li>
+<li>UX flows grow</li>
+<li>data model complexity reveals itself</li>
+<li>external teams are not ready</li>
+<li>hidden constraints emerge</li>
+</ul>
+<p>But the fear is real:</p>
+<ul>
+<li>“If we admit complexity increased, the client will panic.”</li>
+<li>“We can’t renegotiate every time something changes.”</li>
+<li>“If we escalate every drift, we will lose goodwill.”</li>
+<li>“Delivery feels pressure to hide drift to avoid conflict.”</li>
+</ul>
+<p>This page explains how to manage drift <em>without</em> causing unnecessary escalation — and how to keep trust intact.</p>
+<hr />
+<h2 id="2-the-core-principle-drift-is-normal-surprises-are-not"><strong>2. The Core Principle: Drift Is Normal — Surprises Are Not</strong><a class="headerlink" href="#2-the-core-principle-drift-is-normal-surprises-are-not" title="Permanent link">&para;</a></h2>
+<p>Complexity drift is not a failure.
+It is the natural outcome of discovery.</p>
+<p>The breakdown happens when:</p>
+<ul>
+<li>drift is discovered late</li>
+<li>drift is communicated emotionally</li>
+<li>drift is not quantified</li>
+<li>drift is not structured</li>
+<li>drift is confused with failure</li>
+<li>drift is used as a tool for blame</li>
+</ul>
+<p>The goal is <strong>early, structured, low-friction transparency</strong> — not panic escalation.</p>
+<hr />
+<h2 id="3-what-causes-escalations-in-the-first-place"><strong>3. What Causes Escalations in the First Place?</strong><a class="headerlink" href="#3-what-causes-escalations-in-the-first-place" title="Permanent link">&para;</a></h2>
+<p>Not drift itself — but the <em>lack of alignment</em> around drift.</p>
+<p>Top causes of escalation:</p>
+<ol>
+<li>Surprises</li>
+<li>Emotional communication</li>
+<li>No baseline to compare against</li>
+<li>Blaming teams instead of assumptions</li>
+<li>Vague explanations (“it was harder than expected”)</li>
+<li>Late-stage revelations when options are gone</li>
+<li>Pressure on velocity instead of honest drift reporting</li>
+</ol>
+<p>The model solves all seven.</p>
+<hr />
+<h2 id="4-how-the-complexity-model-removes-escalation-pressure"><strong>4. How the Complexity Model Removes Escalation Pressure</strong><a class="headerlink" href="#4-how-the-complexity-model-removes-escalation-pressure" title="Permanent link">&para;</a></h2>
+<h3 id="a-baseline-makes-assumptions-visible"><strong>A. Baseline makes assumptions visible</strong><a class="headerlink" href="#a-baseline-makes-assumptions-visible" title="Permanent link">&para;</a></h3>
+<p>So drift is a <em>gap between assumptions and reality</em> — not a team failure.</p>
+<h3 id="b-drift-tracking-quantifies-change"><strong>B. Drift tracking quantifies change</strong><a class="headerlink" href="#b-drift-tracking-quantifies-change" title="Permanent link">&para;</a></h3>
+<p>No more subjective “it feels harder.”</p>
+<h3 id="c-drivers-explain-why-complexity-changed"><strong>C. Drivers explain <em>why</em> complexity changed</strong><a class="headerlink" href="#c-drivers-explain-why-complexity-changed" title="Permanent link">&para;</a></h3>
+<p>Example: “Integration complexity +3 due to undocumented API changes.”</p>
+<h3 id="d-uncertainty-burn-down-shows-what-was-known-vs-unknown"><strong>D. Uncertainty burn-down shows what was known vs unknown</strong><a class="headerlink" href="#d-uncertainty-burn-down-shows-what-was-known-vs-unknown" title="Permanent link">&para;</a></h3>
+<p>We can say:
+“This was in the yellow zone from the start — here’s where clarity increased.”</p>
+<h3 id="e-early-detection-early-trade-offs"><strong>E. Early detection → early trade-offs</strong><a class="headerlink" href="#e-early-detection-early-trade-offs" title="Permanent link">&para;</a></h3>
+<p>Small adjustments early prevent big renegotiations later.</p>
+<hr />
+<h2 id="5-the-three-stage-drift-management-strategy"><strong>5. The Three-Stage Drift Management Strategy</strong><a class="headerlink" href="#5-the-three-stage-drift-management-strategy" title="Permanent link">&para;</a></h2>
+<p>This is the exact method used by mature product consultancies to avoid conflict and strengthen trust.</p>
+<hr />
+<h3 id="stage-1-internal-alignment-pm-pl-architect-ba-pd">⭐ <strong>Stage 1 — Internal Alignment (PM + PL + Architect + BA + PD)</strong><a class="headerlink" href="#stage-1-internal-alignment-pm-pl-architect-ba-pd" title="Permanent link">&para;</a></h3>
+<p>Frequency:</p>
+<ul>
+<li>weekly</li>
+<li>whenever drift &gt; 10%</li>
+<li>or when major new complexity appears</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>Identify drift driver (integration, UX, data, dependencies, etc.)</li>
+<li>Quantify drift (e.g., +6 complexity, +18% total)</li>
+<li>Understand impact (timeline, capacity, dependencies)</li>
+<li>Decide whether drift requires baseline update</li>
+<li>Prepare a simple narrative for stakeholders</li>
+</ol>
+<p><strong>Outcome:</strong>
+PM and PL align <em>before</em> speaking to client → no panic, no confusion.</p>
+<hr />
+<h3 id="stage-2-low-friction-client-alignment-no-renegotiation-yet">⭐ <strong>Stage 2 — Low-Friction Client Alignment (No Renegotiation Yet)</strong><a class="headerlink" href="#stage-2-low-friction-client-alignment-no-renegotiation-yet" title="Permanent link">&para;</a></h3>
+<p>This stage aims to <em>inform</em>, not negotiate.</p>
+<p>PM communicates:</p>
+<ul>
+<li>what changed</li>
+<li>what impact is expected</li>
+<li>what options exist</li>
+<li>where uncertainty decreased</li>
+<li>what will be rechecked in next iteration</li>
+</ul>
+<p>The tone is:</p>
+<ul>
+<li>calm</li>
+<li>factual</li>
+<li>non-blaming</li>
+<li>structured</li>
+</ul>
+<p>This is typically done via:</p>
+<ul>
+<li>weekly Steering</li>
+<li>roadmap session</li>
+<li>dependency review</li>
+</ul>
+<p><strong>This stage prevents escalation because the client is prepared before it becomes a problem.</strong></p>
+<hr />
+<h3 id="stage-3-structured-trade-off-conversation-only-if-needed">⭐ <strong>Stage 3 — Structured Trade-Off Conversation (Only If Needed)</strong><a class="headerlink" href="#stage-3-structured-trade-off-conversation-only-if-needed" title="Permanent link">&para;</a></h3>
+<p>Only after multiple drift signals accumulate (e.g., &gt;25–30%), PM initiates a structured conversation:</p>
+<ol>
+<li>Present drift trend (not a one-time surprise)</li>
+<li>Show baseline vs actual (factual alignment)</li>
+<li>
+<p>Present options:</p>
+</li>
+<li>
+<p>reduce scope</p>
+</li>
+<li>increase timeline</li>
+<li>increase budget</li>
+<li>reduce complexity (alternative approach)</li>
+<li>Provide value × complexity prioritization</li>
+<li>Align on decision</li>
+</ol>
+<p>This is not a renegotiation.
+It is a <strong>collaborative decision-making event.</strong></p>
+<hr />
+<h2 id="6-what-this-looks-like-in-practice-example"><strong>6. What This Looks Like in Practice (Example)</strong><a class="headerlink" href="#6-what-this-looks-like-in-practice-example" title="Permanent link">&para;</a></h2>
+<h3 id="without-the-model"><strong>Without the model:</strong><a class="headerlink" href="#without-the-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Team feels pressure</li>
+<li>Timeline slipping</li>
+<li>Client angry</li>
+<li>PM defensive</li>
+<li>“We underestimated — sorry”</li>
+<li>Escalation triggered</li>
+</ul>
+<h3 id="with-the-model"><strong>With the model:</strong><a class="headerlink" href="#with-the-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PM: “Integration complexity increased by +4 due to undocumented API behavior. We detected it early.”</li>
+<li>PL: “We already adjusted slice sizes and ran a spike.”</li>
+<li>Architect: “We propose an alternative approach reducing complexity by 2.”</li>
+<li>PM: “This means a +1.5 week impact unless we de-scope Feature B.”</li>
+<li>Client: “Clear. Let’s de-scope Feature B for now.”</li>
+</ul>
+<p>This is how trust is built.</p>
+<hr />
+<h2 id="7-when-not-to-escalate"><strong>7. When NOT To Escalate</strong><a class="headerlink" href="#7-when-not-to-escalate" title="Permanent link">&para;</a></h2>
+<p>You <em>do not</em> escalate when:</p>
+<ul>
+<li>uncertainty resolves without large impact</li>
+<li>drift is &lt;10%</li>
+<li>delivery can absorb it within normal sprint variability</li>
+<li>design improvements add small complexity</li>
+<li>implementation nuance increases SP but not complexity</li>
+<li>the team rebalances slices internally</li>
+</ul>
+<p>These are normal delivery dynamics.</p>
+<hr />
+<h2 id="8-when-you-must-escalate-structured-not-emotional"><strong>8. When You MUST Escalate (Structured, Not Emotional)</strong><a class="headerlink" href="#8-when-you-must-escalate-structured-not-emotional" title="Permanent link">&para;</a></h2>
+<p>Escalate when:</p>
+<ul>
+<li>drift ≥ 25–30%</li>
+<li>dependencies fail repeatedly</li>
+<li>major architectural unknowns emerge</li>
+<li>client-side processes delay acceptance</li>
+<li>new scope is large or critical</li>
+<li>product direction shifts</li>
+<li>UX redesign adds &gt;20–30% complexity</li>
+</ul>
+<p>But escalate <strong>with structure</strong>, not emotion:</p>
+<ul>
+<li>baseline → drift → drivers → options → decisions</li>
+</ul>
+<p>This is escalation as a <em>professional tool</em>, not a conflict.</p>
+<hr />
+<h2 id="9-how-3sf-keeps-drift-conversations-healthy"><strong>9. How 3SF Keeps Drift Conversations Healthy</strong><a class="headerlink" href="#9-how-3sf-keeps-drift-conversations-healthy" title="Permanent link">&para;</a></h2>
+<h3 id="engagement-line-client-vendor"><strong>Engagement Line (client ↔ vendor)</strong><a class="headerlink" href="#engagement-line-client-vendor" title="Permanent link">&para;</a></h3>
+<p>Transparent assumptions avoid blame.</p>
+<h3 id="delivery-line-vendor-product"><strong>Delivery Line (vendor ↔ product)</strong><a class="headerlink" href="#delivery-line-vendor-product" title="Permanent link">&para;</a></h3>
+<p>Drift signals appear early, not at crisis time.</p>
+<h3 id="value-line-product-client"><strong>Value Line (product ↔ client)</strong><a class="headerlink" href="#value-line-product-client" title="Permanent link">&para;</a></h3>
+<p>Trade-offs are tied to value, not pain.</p>
+<p>3SF + Complexity Model = predictable, adult conversations.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../203-faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ⭐ Who Is Responsible for Scoring Complexity &amp;amp; Uncertainty — and How Often Do We Update the Baseline?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ⭐ Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../205-faq/" class="md-footer__link md-footer__link--next" aria-label="Next: ⭐ How Does This Model Scale in Multi-Team or Multi-Vendor Environments?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ⭐ How Does This Model Scale in Multi-Team or Multi-Vendor Environments?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 3in3.dev
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

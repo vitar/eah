@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A unified system for improving predictability, reducing delivery risk, and aligning expectations across the full software lifecycle.">
+      
+      
+        <meta name="author" content="Viktor Jevdokimov, Vilnius, Lithuania">
+      
+      
+      
+        <link rel="prev" href="../202-faq/">
+      
+      
+        <link rel="next" href="../204-faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>⭐ Who Is Responsible for Scoring Complexity & Uncertainty — and How Often Do We Update the Baseline? - Estimation Alignment Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+    // Move the button into the actual header container on every page
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('pdf-download');
+      var target = document.querySelector('.md-header .md-header__inner');
+      if (btn && target && !target.contains(btn)) target.appendChild(btn);
+    });
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#who-is-responsible-for-scoring-complexity-uncertainty-and-how-often-do-we-update-the-baseline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Estimation Alignment Hub" class="md-header__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estimation Alignment Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⭐ Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+
+  <a id="pdf-download"
+     class="md-header__button md-icon"
+     href="../pdf/eah.pdf"
+     title="Download PDF"
+     aria-label="Download PDF">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
+  </a>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Estimation Alignment Hub" class="md-nav__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Estimation Alignment Hub
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Estimation Alignment Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Complexity &amp; Uncertainty Model for Estimation Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Translation Map: Connecting Estimation Methods Across the Delivery Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120-scoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Complexity &amp; Uncertainty Scoring Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130-diagnostic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Estimation &amp; Delivery Diagnostic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Implementation Stages Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../200-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How This Model Fits With Existing RFP and Fixed-Bid Estimation Processes?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Prevent Story Point Inflation or Re-Estimation Games?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../204-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../205-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Does This Model Scale in Multi-Team or Multi-Vendor Environments?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../206-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 How Estimation Aligns Across Dual-Track Scrum (Discovery + Delivery)?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../207-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../208-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../209-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../210-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Contradictions Between Estimation Methods — FTEs, Story Points, Flow Metrics, and Forecasts?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../211-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ When and How to Use Common Estimation Methods (T-Shirt, Story Points, PERT/Statistical PERT, etc.) — And How They Align Through the Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="who-is-responsible-for-scoring-complexity-uncertainty-and-how-often-do-we-update-the-baseline">⭐ <strong>Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?</strong><a class="headerlink" href="#who-is-responsible-for-scoring-complexity-uncertainty-and-how-often-do-we-update-the-baseline" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Complexity &amp; uncertainty scoring is a multi-role activity:<br />
+PM, BA, PD, Architect, and EM each score the parts they understand best.<br />
+The baseline is created during RFP (v1), updated after Discovery (v2), and only updated during Delivery when real complexity drift occurs (v3).<br />
+Drift tracking is continuous — baseline updates are intentional.</strong></p>
+</blockquote>
+<hr />
+<p><em>Clarifying ownership, timing, and collaboration across roles.</em></p>
+<hr />
+<h2 id="1-why-this-question-exists"><strong>1. Why This Question Exists</strong><a class="headerlink" href="#1-why-this-question-exists" title="Permanent link">&para;</a></h2>
+<p>Every organization hits the same three pain points:</p>
+<ol>
+<li>
+<p><strong>No one is sure who should score what</strong>
+   PM? BA? PD? Architect? Devs? EM? PL? All? None?</p>
+</li>
+<li>
+<p><strong>Scoring happens at the wrong times</strong>
+   Too early → inaccurate
+   Too late → chaotic
+   Repeatedly → wasteful
+   Never → dangerous</p>
+</li>
+<li>
+<p><strong>Baselines are created once and then forgotten</strong>
+   Delivery inherits a “fixed estimate” with no way to evaluate how assumptions changed.</p>
+</li>
+</ol>
+<p>This page explains exactly <strong>who owns scoring</strong>, <strong>who contributes</strong>, and <strong>how frequently</strong> the baseline should be updated.</p>
+<hr />
+<h1 id="2-core-principle-scoring-is-cross-functional-ownership-is-shared"><strong>2. Core Principle: Scoring Is Cross-Functional, Ownership Is Shared</strong><a class="headerlink" href="#2-core-principle-scoring-is-cross-functional-ownership-is-shared" title="Permanent link">&para;</a></h1>
+<p>Complexity &amp; uncertainty <em>cannot</em> be scored by a single role, because each role has visibility into different dimensions:</p>
+<ul>
+<li>BA → requirement clarity</li>
+<li>PD → UX &amp; workflow complexity</li>
+<li>Architect → integration, NFR, data, domain</li>
+<li>PM → stakeholder alignment, dependency risk</li>
+<li>EM/Lead → implementation complexity</li>
+<li>Devs → slicing complexity, technical nuance</li>
+</ul>
+<p><strong>This is fundamentally a multi-role activity.</strong></p>
+<p>But ownership must be clear.</p>
+<hr />
+<h1 id="3-ownership-model-raci"><strong>3. Ownership Model (RACI)</strong><a class="headerlink" href="#3-ownership-model-raci" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>PM</th>
+<th>BA</th>
+<th>PD</th>
+<th>Architect</th>
+<th>EM/PL</th>
+<th>Dev Team</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identify EPIC/Feature list</td>
+<td>A/R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Score Complexity</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Score Uncertainty</td>
+<td>A</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>C</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Create Baseline v1 (RFP)</td>
+<td>A/R</td>
+<td>C</td>
+<td>C</td>
+<td>R</td>
+<td>C</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Create Baseline v2 (Post-Discovery)</td>
+<td>A/R</td>
+<td>R</td>
+<td>R</td>
+<td>R</td>
+<td>C</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Track Drift</td>
+<td>A/R</td>
+<td>C</td>
+<td>C</td>
+<td>C</td>
+<td>A/R</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Trigger Baseline Update</td>
+<td>A</td>
+<td>—</td>
+<td>—</td>
+<td>R</td>
+<td>R</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Legend:
+<strong>A = Accountable</strong>, <strong>R = Responsible</strong>, <strong>C = Consulted</strong></p>
+<p>This matrix keeps responsibility distributed without creating ambiguity.</p>
+<hr />
+<h1 id="4-what-each-role-scores-breakdown"><strong>4. What Each Role Scores (Breakdown)</strong><a class="headerlink" href="#4-what-each-role-scores-breakdown" title="Permanent link">&para;</a></h1>
+<h3 id="pm-projectprogram-manager"><strong>PM (Project/Program Manager)</strong><a class="headerlink" href="#pm-projectprogram-manager" title="Permanent link">&para;</a></h3>
+<p>Scores:</p>
+<ul>
+<li>requirement clarity</li>
+<li>stakeholder alignment</li>
+<li>delivery constraints</li>
+<li>external dependencies</li>
+<li>operational/process uncertainty</li>
+</ul>
+<p>Why: PMs manage alignment and risk visibility.</p>
+<hr />
+<h3 id="ba-business-analyst"><strong>BA (Business Analyst)</strong><a class="headerlink" href="#ba-business-analyst" title="Permanent link">&para;</a></h3>
+<p>Scores:</p>
+<ul>
+<li>requirement depth</li>
+<li>ambiguous logic</li>
+<li>gaps in acceptance criteria</li>
+<li>documentation quality</li>
+</ul>
+<p>Why: BAs understand functional truth and its vagueness.</p>
+<hr />
+<h3 id="pd-product-designer-ux"><strong>PD (Product Designer / UX)</strong><a class="headerlink" href="#pd-product-designer-ux" title="Permanent link">&para;</a></h3>
+<p>Scores:</p>
+<ul>
+<li>UI/UX complexity</li>
+<li>workflow branching</li>
+<li>user interactions</li>
+<li>design uncertainty</li>
+</ul>
+<p>Why: UX complexity is often the hidden multiplier in delivery effort.</p>
+<hr />
+<h3 id="architect"><strong>Architect</strong><a class="headerlink" href="#architect" title="Permanent link">&para;</a></h3>
+<p>Scores:</p>
+<ul>
+<li>integration complexity</li>
+<li>data complexity</li>
+<li>non-functional requirements</li>
+<li>platform constraints</li>
+<li>technical unknowns</li>
+</ul>
+<p>Why: architecture drives the upper bound of engineering effort.</p>
+<hr />
+<h3 id="empl-engineering-manager-project-lead"><strong>EM/PL (Engineering Manager / Project Lead)</strong><a class="headerlink" href="#empl-engineering-manager-project-lead" title="Permanent link">&para;</a></h3>
+<p>Scores:</p>
+<ul>
+<li>implementation complexity</li>
+<li>technical dependencies</li>
+<li>slicing feasibility</li>
+<li>testability complexity</li>
+</ul>
+<p>Why: EM/PLs own the delivery execution.</p>
+<hr />
+<h3 id="developers"><strong>Developers</strong><a class="headerlink" href="#developers" title="Permanent link">&para;</a></h3>
+<p>Contribute to:</p>
+<ul>
+<li>technical nuance</li>
+<li>incremental complexity</li>
+<li>edge-case awareness</li>
+<li>splitting stories</li>
+</ul>
+<p>Why: devs are closest to the code and can detect hidden complexity early.</p>
+<hr />
+<h1 id="5-when-to-score-frequency"><strong>5. When To Score (Frequency)</strong><a class="headerlink" href="#5-when-to-score-frequency" title="Permanent link">&para;</a></h1>
+<p>The baseline is not static.
+It evolves as clarity evolves.</p>
+<p>Below is the recommended update rhythm.</p>
+<hr />
+<h2 id="baseline-v1-rfp-stage-initial-assumptions">⭐ <strong>Baseline v1 — RFP Stage (Initial Assumptions)</strong><a class="headerlink" href="#baseline-v1-rfp-stage-initial-assumptions" title="Permanent link">&para;</a></h2>
+<p>When:</p>
+<ul>
+<li>first estimate</li>
+<li>early capability breakdown</li>
+</ul>
+<p>Who:</p>
+<ul>
+<li>PM + Architect + BA + PD + EM</li>
+</ul>
+<p>Purpose:</p>
+<ul>
+<li>guide costing</li>
+<li>estimate timeline</li>
+<li>inform staffing</li>
+<li>establish assumptions</li>
+</ul>
+<hr />
+<h2 id="baseline-v2-after-discovery-design-clarity-pass">⭐ <strong>Baseline v2 — After Discovery &amp; Design (Clarity Pass)</strong><a class="headerlink" href="#baseline-v2-after-discovery-design-clarity-pass" title="Permanent link">&para;</a></h2>
+<p>When:</p>
+<ul>
+<li>after requirements clarified</li>
+<li>after UX flows drafted</li>
+<li>after architecture is mapped</li>
+<li>after key dependencies identified</li>
+</ul>
+<p>Who:</p>
+<ul>
+<li>PM + BA + PD + Architect</li>
+</ul>
+<p>Purpose:</p>
+<ul>
+<li>convert assumptions → validated complexity</li>
+<li>reduce uncertainty</li>
+<li>enable stable sprint planning</li>
+<li>adjust forecasts before coding starts</li>
+</ul>
+<p>This is the <strong>most important</strong> baseline version.</p>
+<hr />
+<h2 id="baseline-v3-during-delivery-drift-detection">⭐ <strong>Baseline v3 — During Delivery (Drift Detection)</strong><a class="headerlink" href="#baseline-v3-during-delivery-drift-detection" title="Permanent link">&para;</a></h2>
+<p>When:</p>
+<ul>
+<li>complexity drift crosses threshold (e.g., 15–25%)</li>
+<li>major new scope appears</li>
+<li>new integration constraints discovered</li>
+<li>dependencies change</li>
+<li>uncertainty spikes</li>
+</ul>
+<p>Who:</p>
+<ul>
+<li>PM + Architect + EM/PL</li>
+</ul>
+<p>Purpose:</p>
+<ul>
+<li>stay ahead of drift</li>
+<li>adjust timeline transparently</li>
+<li>prevent velocity pressure</li>
+<li>justify re-estimation</li>
+<li>protect team and client expectations</li>
+</ul>
+<p>Baseline v3 is <strong>not automatic</strong> — it’s triggered by real events.</p>
+<hr />
+<h2 id="ongoing-drift-tracking-every-sprint">⭐ <strong>Ongoing Drift Tracking — Every Sprint</strong><a class="headerlink" href="#ongoing-drift-tracking-every-sprint" title="Permanent link">&para;</a></h2>
+<p>Frequency:</p>
+<ul>
+<li>Complexity rescored when new info arrives</li>
+<li>Uncertainty reviewed weekly</li>
+<li>Drift trend reviewed in sprint reviews or PM/PL sync</li>
+</ul>
+<p>Purpose:</p>
+<ul>
+<li>detect misalignment early</li>
+<li>prevent “slow deterioration”</li>
+<li>avoid late surprises</li>
+<li>create predictable flow</li>
+</ul>
+<hr />
+<h1 id="6-when-not-to-update-the-baseline"><strong>6. When NOT To Update the Baseline</strong><a class="headerlink" href="#6-when-not-to-update-the-baseline" title="Permanent link">&para;</a></h1>
+<p>The baseline should <em>not</em> be updated:</p>
+<ul>
+<li>to “fix” velocity</li>
+<li>to make SP look right</li>
+<li>to hide complexity</li>
+<li>to force artificial alignment</li>
+<li>because someone feels uncomfortable</li>
+<li>because leadership wants a smoother forecast</li>
+</ul>
+<p>If none of the <em>drivers</em> changed — the baseline must remain stable.</p>
+<p>This maintains the integrity of drift signals.</p>
+<hr />
+<h1 id="7-how-this-prevents-estimation-chaos"><strong>7. How This Prevents Estimation Chaos</strong><a class="headerlink" href="#7-how-this-prevents-estimation-chaos" title="Permanent link">&para;</a></h1>
+<p>This model ensures:</p>
+<h3 id="no-single-role-is-overburdened"><strong>No single role is overburdened</strong><a class="headerlink" href="#no-single-role-is-overburdened" title="Permanent link">&para;</a></h3>
+<p>Complexity is scored by experts in each domain.</p>
+<h3 id="delivery-inherits-a-realistic-context"><strong>Delivery inherits a realistic context</strong><a class="headerlink" href="#delivery-inherits-a-realistic-context" title="Permanent link">&para;</a></h3>
+<p>Baseline makes assumptions visible.</p>
+<h3 id="uncertainty-decreases-predictably"><strong>Uncertainty decreases predictably</strong><a class="headerlink" href="#uncertainty-decreases-predictably" title="Permanent link">&para;</a></h3>
+<p>Burn-down reveals discovery gaps.</p>
+<h3 id="drift-becomes-measurable"><strong>Drift becomes measurable</strong><a class="headerlink" href="#drift-becomes-measurable" title="Permanent link">&para;</a></h3>
+<p>Teams no longer rely on “it feels harder.”</p>
+<h3 id="re-estimation-becomes-justified"><strong>Re-estimation becomes justified</strong><a class="headerlink" href="#re-estimation-becomes-justified" title="Permanent link">&para;</a></h3>
+<p>Because drift is visible, not emotional.</p>
+<h3 id="velocity-becomes-clean"><strong>Velocity becomes clean</strong><a class="headerlink" href="#velocity-becomes-clean" title="Permanent link">&para;</a></h3>
+<p>No point inflation, no gaming.</p>
+<h3 id="stakeholder-conversations-improve"><strong>Stakeholder conversations improve</strong><a class="headerlink" href="#stakeholder-conversations-improve" title="Permanent link">&para;</a></h3>
+<p>Discussion becomes factual, not political.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../202-faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ⭐ How Do We Prevent Story Point Inflation or Re-Estimation Games?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ⭐ How Do We Prevent Story Point Inflation or Re-Estimation Games?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../204-faq/" class="md-footer__link md-footer__link--next" aria-label="Next: ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 3in3.dev
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

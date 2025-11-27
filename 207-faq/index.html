@@ -1,0 +1,1750 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A unified system for improving predictability, reducing delivery risk, and aligning expectations across the full software lifecycle.">
+      
+      
+        <meta name="author" content="Viktor Jevdokimov, Vilnius, Lithuania">
+      
+      
+      
+        <link rel="prev" href="../206-faq/">
+      
+      
+        <link rel="next" href="../208-faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>⭐ Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight? - Estimation Alignment Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+    // Move the button into the actual header container on every page
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('pdf-download');
+      var target = document.querySelector('.md-header .md-header__inner');
+      if (btn && target && !target.contains(btn)) target.appendChild(btn);
+    });
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#does-tracking-complexity-and-uncertainty-increase-overhead-how-do-we-keep-it-lightweight" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Estimation Alignment Hub" class="md-header__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estimation Alignment Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ⭐ Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+
+  <a id="pdf-download"
+     class="md-header__button md-icon"
+     href="../pdf/eah.pdf"
+     title="Download PDF"
+     aria-label="Download PDF">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
+  </a>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Estimation Alignment Hub" class="md-nav__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Estimation Alignment Hub
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Estimation Alignment Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Complexity &amp; Uncertainty Model for Estimation Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Translation Map: Connecting Estimation Methods Across the Delivery Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120-scoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Complexity &amp; Uncertainty Scoring Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130-diagnostic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Estimation &amp; Delivery Diagnostic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Implementation Stages Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../200-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How This Model Fits With Existing RFP and Fixed-Bid Estimation Processes?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Prevent Story Point Inflation or Re-Estimation Games?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../203-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../204-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../205-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Does This Model Scale in Multi-Team or Multi-Vendor Environments?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../206-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💡 How Estimation Aligns Across Dual-Track Scrum (Discovery + Delivery)?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-core-principle-minimum-effort-maximum-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Principle: Minimum Effort, Maximum Signal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-where-teams-fear-overhead-and-why-it-doesnt-happen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Where Teams Fear Overhead — And Why It Doesn’t Happen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Where Teams Fear Overhead — And Why It Doesn’t Happen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fear-1-we-will-score-complexity-for-every-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 1 — “We will score complexity for every story.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-2-we-will-re-score-all-the-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 2 — “We will re-score all the time.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-3-a-scoring-session-will-take-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 3 — “A scoring session will take hours.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-4-pms-or-bas-will-own-the-entire-burden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 4 — “PMs or BAs will own the entire burden.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-5-this-will-overlap-existing-meetings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 5 — “This will overlap existing meetings.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-the-model-stays-lightweight-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How the Model Stays Lightweight (Mechanics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. How the Model Stays Lightweight (Mechanics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-complexity-drivers-are-intentionally-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 1. Complexity drivers are intentionally simple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scoring-is-done-collaboratively-not-sequentially" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 2. Scoring is done collaboratively, not sequentially
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-only-score-at-the-unit-of-meaning-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 3. Only score at the “unit of meaning” level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-drift-is-flagged-by-pmpl-not-scored-constantly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 4. Drift is flagged by PM/PL, not scored constantly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-baseline-updates-are-infrequent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 5. Baseline updates are infrequent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-uncertainty-scoring-reduces-rework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 6. Uncertainty scoring reduces rework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-overhead-comparison-before-vs-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Overhead Comparison: Before vs After
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Overhead Comparison: Before vs After">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-the-model-hidden-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before the model (hidden overhead):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-the-model-visible-minimal-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After the model (visible, minimal overhead):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-where-the-efficiency-comes-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Where the Efficiency Comes From
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-practical-ways-to-keep-it-light" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Practical Ways to Keep It Light
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Practical Ways to Keep It Light">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#only-score-when-something-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Only score when something changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#score-only-what-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Score only what matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#score-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Score fast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-it-in-regular-meetings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Do it in regular meetings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-it-a-shared-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Make it a shared responsibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-visual-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Use visual dashboards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-chase-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Don’t chase precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../208-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../209-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../210-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ How Do We Handle Contradictions Between Estimation Methods — FTEs, Story Points, Flow Metrics, and Forecasts?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../211-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⭐ When and How to Use Common Estimation Methods (T-Shirt, Story Points, PERT/Statistical PERT, etc.) — And How They Align Through the Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Exists
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-core-principle-minimum-effort-maximum-signal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The Core Principle: Minimum Effort, Maximum Signal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-where-teams-fear-overhead-and-why-it-doesnt-happen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Where Teams Fear Overhead — And Why It Doesn’t Happen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Where Teams Fear Overhead — And Why It Doesn’t Happen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fear-1-we-will-score-complexity-for-every-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 1 — “We will score complexity for every story.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-2-we-will-re-score-all-the-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 2 — “We will re-score all the time.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-3-a-scoring-session-will-take-hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 3 — “A scoring session will take hours.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-4-pms-or-bas-will-own-the-entire-burden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 4 — “PMs or BAs will own the entire burden.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fear-5-this-will-overlap-existing-meetings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fear 5 — “This will overlap existing meetings.”
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-how-the-model-stays-lightweight-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How the Model Stays Lightweight (Mechanics)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. How the Model Stays Lightweight (Mechanics)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-complexity-drivers-are-intentionally-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 1. Complexity drivers are intentionally simple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scoring-is-done-collaboratively-not-sequentially" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 2. Scoring is done collaboratively, not sequentially
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-only-score-at-the-unit-of-meaning-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 3. Only score at the “unit of meaning” level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-drift-is-flagged-by-pmpl-not-scored-constantly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 4. Drift is flagged by PM/PL, not scored constantly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-baseline-updates-are-infrequent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 5. Baseline updates are infrequent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-uncertainty-scoring-reduces-rework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⭐ 6. Uncertainty scoring reduces rework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-overhead-comparison-before-vs-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Overhead Comparison: Before vs After
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Overhead Comparison: Before vs After">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-the-model-hidden-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before the model (hidden overhead):
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-the-model-visible-minimal-overhead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After the model (visible, minimal overhead):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-where-the-efficiency-comes-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Where the Efficiency Comes From
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-practical-ways-to-keep-it-light" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Practical Ways to Keep It Light
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Practical Ways to Keep It Light">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#only-score-when-something-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Only score when something changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#score-only-what-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Score only what matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#score-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Score fast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-it-in-regular-meetings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Do it in regular meetings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-it-a-shared-responsibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Make it a shared responsibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-visual-dashboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Use visual dashboards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-chase-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Don’t chase precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="does-tracking-complexity-and-uncertainty-increase-overhead-how-do-we-keep-it-lightweight">⭐ <strong>Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?</strong><a class="headerlink" href="#does-tracking-complexity-and-uncertainty-increase-overhead-how-do-we-keep-it-lightweight" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>No — tracking complexity and uncertainty does not add overhead.<br />
+It replaces invisible, high-cost overhead (rework, re-estimation, surprises) with a fast, lightweight alignment tool.<br />
+Teams score only meaningful features, only when needed, using a simple scale — and save significant effort later in delivery.</strong></p>
+</blockquote>
+<hr />
+<p><em>How to make the model efficient, fast, and practical — not bureaucratic.</em></p>
+<hr />
+<h2 id="1-why-this-question-exists"><strong>1. Why This Question Exists</strong><a class="headerlink" href="#1-why-this-question-exists" title="Permanent link">&para;</a></h2>
+<p>Whenever a new practice is introduced, especially one involving scoring or alignment, teams naturally worry about:</p>
+<ul>
+<li>“Is this more paperwork?”</li>
+<li>“Will this slow us down?”</li>
+<li>“Do we really need another meeting?”</li>
+<li>“Is this replacing agility with process?”</li>
+<li>“Will this add friction for PM/BA/PD/Architects?”</li>
+</ul>
+<p>These concerns are legitimate — and they mostly come from prior experiences where estimation approaches became heavy and ritualistic.</p>
+<p>This model is intentionally built to be <strong>lightweight, fast, and minimal overhead</strong>, while providing deep visibility.</p>
+<p>This page explains how.</p>
+<hr />
+<h2 id="2-the-core-principle-minimum-effort-maximum-signal"><strong>2. The Core Principle: Minimum Effort, Maximum Signal</strong><a class="headerlink" href="#2-the-core-principle-minimum-effort-maximum-signal" title="Permanent link">&para;</a></h2>
+<p>The model is not designed to be:</p>
+<ul>
+<li>a big spreadsheet</li>
+<li>an admin-heavy ritual</li>
+<li>a governance checkpoint</li>
+<li>a status-reporting mechanism</li>
+<li>a re-estimation ceremony</li>
+</ul>
+<p>It is designed as a <strong>quick sensing mechanism</strong> — a radar, not bureaucracy.</p>
+<p>You score <em>only what matters</em>, at the level where decisions are made.</p>
+<hr />
+<h2 id="3-where-teams-fear-overhead-and-why-it-doesnt-happen"><strong>3. Where Teams Fear Overhead — And Why It Doesn’t Happen</strong><a class="headerlink" href="#3-where-teams-fear-overhead-and-why-it-doesnt-happen" title="Permanent link">&para;</a></h2>
+<h3 id="fear-1-we-will-score-complexity-for-every-story"><strong>Fear 1 — “We will score complexity for every story.”</strong><a class="headerlink" href="#fear-1-we-will-score-complexity-for-every-story" title="Permanent link">&para;</a></h3>
+<p><strong>No.</strong>
+You score only EPICs, features, or slices — not tasks.</p>
+<h3 id="fear-2-we-will-re-score-all-the-time"><strong>Fear 2 — “We will re-score all the time.”</strong><a class="headerlink" href="#fear-2-we-will-re-score-all-the-time" title="Permanent link">&para;</a></h3>
+<p><strong>No.</strong>
+Baseline updates happen only when drift is significant (e.g., &gt;15–20%).
+Most work requires no re-scoring.</p>
+<h3 id="fear-3-a-scoring-session-will-take-hours"><strong>Fear 3 — “A scoring session will take hours.”</strong><a class="headerlink" href="#fear-3-a-scoring-session-will-take-hours" title="Permanent link">&para;</a></h3>
+<p><strong>No.</strong>
+Scoring is designed to take:</p>
+<ul>
+<li>5–10 minutes per feature for RFP</li>
+<li>1–2 minutes per feature during discovery</li>
+<li>30 seconds during drift review</li>
+</ul>
+<h3 id="fear-4-pms-or-bas-will-own-the-entire-burden"><strong>Fear 4 — “PMs or BAs will own the entire burden.”</strong><a class="headerlink" href="#fear-4-pms-or-bas-will-own-the-entire-burden" title="Permanent link">&para;</a></h3>
+<p><strong>No.</strong>
+Scoring is distributed across roles — each person scores what they know best.</p>
+<h3 id="fear-5-this-will-overlap-existing-meetings"><strong>Fear 5 — “This will overlap existing meetings.”</strong><a class="headerlink" href="#fear-5-this-will-overlap-existing-meetings" title="Permanent link">&para;</a></h3>
+<p><strong>No.</strong>
+It integrates seamlessly with:</p>
+<ul>
+<li>discovery</li>
+<li>refinement</li>
+<li>PM/PL sync</li>
+<li>architecture sync</li>
+<li>sprint review</li>
+</ul>
+<p>No new ceremonies needed.</p>
+<hr />
+<h2 id="4-how-the-model-stays-lightweight-mechanics"><strong>4. How the Model Stays Lightweight (Mechanics)</strong><a class="headerlink" href="#4-how-the-model-stays-lightweight-mechanics" title="Permanent link">&para;</a></h2>
+<h3 id="1-complexity-drivers-are-intentionally-simple">⭐ <strong>1. Complexity drivers are intentionally simple</strong><a class="headerlink" href="#1-complexity-drivers-are-intentionally-simple" title="Permanent link">&para;</a></h3>
+<p>9–10 drivers.
+0–3–5 scale.
+No formulas.
+No ambiguity.</p>
+<h3 id="2-scoring-is-done-collaboratively-not-sequentially">⭐ <strong>2. Scoring is done collaboratively, not sequentially</strong><a class="headerlink" href="#2-scoring-is-done-collaboratively-not-sequentially" title="Permanent link">&para;</a></h3>
+<p>Each person scores their dimension simultaneously.
+Takes minutes, not hours.</p>
+<h3 id="3-only-score-at-the-unit-of-meaning-level">⭐ <strong>3. Only score at the “unit of meaning” level</strong><a class="headerlink" href="#3-only-score-at-the-unit-of-meaning-level" title="Permanent link">&para;</a></h3>
+<p>Examples:</p>
+<ul>
+<li>EPICs</li>
+<li>capabilities</li>
+<li>features</li>
+<li>integration blocks</li>
+<li>UX flows</li>
+<li>slices
+  Not:</li>
+<li>tasks</li>
+<li>subtasks</li>
+<li>story-level items</li>
+</ul>
+<h3 id="4-drift-is-flagged-by-pmpl-not-scored-constantly">⭐ <strong>4. Drift is flagged by PM/PL, not scored constantly</strong><a class="headerlink" href="#4-drift-is-flagged-by-pmpl-not-scored-constantly" title="Permanent link">&para;</a></h3>
+<p>If nothing changes → no work.
+If something changes → re-score <em>only the affected driver</em>.</p>
+<h3 id="5-baseline-updates-are-infrequent">⭐ <strong>5. Baseline updates are infrequent</strong><a class="headerlink" href="#5-baseline-updates-are-infrequent" title="Permanent link">&para;</a></h3>
+<p>v1 → RFP
+v2 → after discovery
+v3+ → only when drift is significant
+Most projects have <strong>2–3 baseline versions total</strong>, not dozens.</p>
+<h3 id="6-uncertainty-scoring-reduces-rework">⭐ <strong>6. Uncertainty scoring reduces rework</strong><a class="headerlink" href="#6-uncertainty-scoring-reduces-rework" title="Permanent link">&para;</a></h3>
+<p>When teams know what’s unclear, they stop:</p>
+<ul>
+<li>overbuilding</li>
+<li>overestimating</li>
+<li>underestimating</li>
+<li>gambling</li>
+<li>guessing</li>
+</ul>
+<p>This reduces overhead instead of adding it.</p>
+<hr />
+<h2 id="5-overhead-comparison-before-vs-after"><strong>5. Overhead Comparison: Before vs After</strong><a class="headerlink" href="#5-overhead-comparison-before-vs-after" title="Permanent link">&para;</a></h2>
+<h3 id="before-the-model-hidden-overhead"><strong>Before the model (hidden overhead):</strong><a class="headerlink" href="#before-the-model-hidden-overhead" title="Permanent link">&para;</a></h3>
+<ul>
+<li>endless refinement</li>
+<li>unclear scope</li>
+<li>re-estimation loops</li>
+<li>velocity manipulation</li>
+<li>misaligned dependencies</li>
+<li>sprint-to-sprint firefighting</li>
+<li>late discovery</li>
+<li>last-minute scope cuts</li>
+<li>PM/BA/Architect burnout</li>
+</ul>
+<p>This is enormous overhead — but invisible.</p>
+<hr />
+<h3 id="after-the-model-visible-minimal-overhead"><strong>After the model (visible, minimal overhead):</strong><a class="headerlink" href="#after-the-model-visible-minimal-overhead" title="Permanent link">&para;</a></h3>
+<ul>
+<li>quick feature scoring</li>
+<li>early uncertainty detection</li>
+<li>predictable drift identification</li>
+<li>clear alignment</li>
+<li>fewer surprises</li>
+<li>less rework</li>
+<li>smoother sprint planning</li>
+<li>reduced conflict</li>
+<li>fewer escalations</li>
+</ul>
+<p>This is low overhead — and high leverage.</p>
+<hr />
+<h2 id="6-where-the-efficiency-comes-from"><strong>6. Where the Efficiency Comes From</strong><a class="headerlink" href="#6-where-the-efficiency-comes-from" title="Permanent link">&para;</a></h2>
+<p>Tracking complexity &amp; uncertainty:</p>
+<ul>
+<li>reduces rework (major savings)</li>
+<li>prevents late-stage surprises (huge savings)</li>
+<li>reduces PM/BA/Dev/Architect firefighting (massive savings)</li>
+<li>prevents 5+ rounds of story re-estimation (priceless savings)</li>
+<li>minimizes context switching</li>
+<li>reduces pressure to “go faster”</li>
+<li>stabilizes velocity</li>
+<li>removes bureaucratic process that grew to compensate for lack of clarity</li>
+</ul>
+<p>It’s one of the rare practices where <strong>you invest minutes and save weeks</strong>.</p>
+<hr />
+<h2 id="7-practical-ways-to-keep-it-light"><strong>7. Practical Ways to Keep It Light</strong><a class="headerlink" href="#7-practical-ways-to-keep-it-light" title="Permanent link">&para;</a></h2>
+<p>Here is the operational guideline:</p>
+<h3 id="only-score-when-something-changes">✔ Only score when something changes<a class="headerlink" href="#only-score-when-something-changes" title="Permanent link">&para;</a></h3>
+<p>If nothing changed → no action.</p>
+<h3 id="score-only-what-matters">✔ Score only what matters<a class="headerlink" href="#score-only-what-matters" title="Permanent link">&para;</a></h3>
+<p>EPICs/features — not stories/tasks.</p>
+<h3 id="score-fast">✔ Score fast<a class="headerlink" href="#score-fast" title="Permanent link">&para;</a></h3>
+<p>Use 0–3–5 scale to avoid debate.</p>
+<h3 id="do-it-in-regular-meetings">✔ Do it in regular meetings<a class="headerlink" href="#do-it-in-regular-meetings" title="Permanent link">&para;</a></h3>
+<p>Discovery sync → RFP &amp; clarification
+Refinement → slicing
+PM/PL sync → drift review
+Sprint Review → reflection</p>
+<h3 id="make-it-a-shared-responsibility">✔ Make it a shared responsibility<a class="headerlink" href="#make-it-a-shared-responsibility" title="Permanent link">&para;</a></h3>
+<p>Not PM alone. Not Architect alone.
+Everyone contributes small pieces.</p>
+<h3 id="use-visual-dashboards">✔ Use visual dashboards<a class="headerlink" href="#use-visual-dashboards" title="Permanent link">&para;</a></h3>
+<p>Complexity drift graphs in Confluence/Jira reduce meetings.</p>
+<h3 id="dont-chase-precision">✔ Don’t chase precision<a class="headerlink" href="#dont-chase-precision" title="Permanent link">&para;</a></h3>
+<p>We’re seeking <em>signals</em>, not “correctness.”</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../206-faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 💡 How Estimation Aligns Across Dual-Track Scrum (Discovery + Delivery)?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                💡 How Estimation Aligns Across Dual-Track Scrum (Discovery + Delivery)?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../208-faq/" class="md-footer__link md-footer__link--next" aria-label="Next: ⭐ How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ⭐ How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 3in3.dev
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
