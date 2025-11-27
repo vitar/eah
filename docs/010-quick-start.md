@@ -91,7 +91,7 @@ Ensure sustainable, low-friction adoption across teams, portfolios, and leadersh
 
 ---
 
-# 🎯 **3. Who Should Use This Hub**
+## **3. Who Should Use This Hub**
 
 This hub is designed for:
 
@@ -107,7 +107,7 @@ This hub is designed for:
 
 ---
 
-# 🧭 **4. How to Navigate**
+## **4. How to Navigate**
 
 Use the pages in the following sequence:
 
@@ -122,7 +122,7 @@ This sequence mirrors the natural flow of learning and change.
 
 ---
 
-# 🚀 **5. What This Enables**
+## **5. What This Enables**
 
 Once adopted, this model unlocks:
 
