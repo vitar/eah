@@ -1,0 +1,209 @@
+<template>
+  <header>
+    <h1>Estimation Alignment Tool (Complexity &amp; Uncertainty)</h1>
+    <div class="actions">
+      <button class="btn" click.trigger="exportJson()">Export JSON</button>
+      <label class="btn">
+        Import JSON
+        <input type="file" accept="application/json" ref="fileInput" change.trigger="importJson($event)" style="display:none" />
+      </label>
+    </div>
+  </header>
+
+  <nav>
+    <button class.bind="activeTab === 'getting-started' ? 'active' : ''" data-section="getting-started" click.trigger="setTab('getting-started')">Getting Started</button>
+    <button class.bind="activeTab === 'config' ? 'active' : ''" data-section="config" click.trigger="setTab('config')">Config</button>
+    <button class.bind="activeTab === 'features' ? 'active' : ''" data-section="features" click.trigger="setTab('features')">Features &amp; Baseline</button>
+    <button class.bind="activeTab === 'drift' ? 'active' : ''" data-section="drift" click.trigger="setTab('drift')">Drift &amp; Signals</button>
+  </nav>
+
+  <main>
+    <section if.bind="activeTab === 'getting-started'">
+      <h2>Getting Started</h2>
+      <div class="alert alert-info">
+        This page is a browser-based mini-tool for <strong>initial estimation</strong> and
+        <strong>early drift detection</strong> using Complexity &amp; Uncertainty. All data is stored
+        locally in your browser (localStorage). Use <strong>Export JSON</strong> to back up or share.
+      </div>
+      <h3>Minimum viable use (first project)</h3>
+      <ol>
+        <li>Open the <strong>Config</strong> tab and review the Complexity and Uncertainty drivers. Adjust descriptions if needed.</li>
+        <li>Open <strong>Features &amp; Baseline</strong> and add one row per EPIC / feature.</li>
+        <li>For each feature, score each driver (0, 1, 2, 3, 5). The tool will calculate <strong>Complexity total</strong>, <strong>band</strong>, and <strong>Uncertainty total</strong>.</li>
+        <li>Use Complexity band and Uncertainty total during RFP / discovery discussions and to prioritise where you need more clarification.</li>
+        <li>As the project moves, update scores when new complexity appears or uncertainty decreases.</li>
+        <li>Open <strong>Drift &amp; Signals</strong> to see where complexity has increased or uncertainty is not going down. Use this as input for scope/timeline/team discussions.</li>
+      </ol>
+
+      <h3>How data is stored</h3>
+      <ul>
+        <li>All data is kept in your browser’s <code>localStorage</code> under a single key.</li>
+        <li>Use <strong>Export JSON</strong> to download a backup file.</li>
+        <li>Use <strong>Import JSON</strong> to restore or share a snapshot.</li>
+      </ul>
+
+      <h3>Scoring hints</h3>
+      <ul>
+        <li><strong>0</strong> – Not relevant / no impact.</li>
+        <li><strong>1</strong> – Low impact, known pattern.</li>
+        <li><strong>2</strong> – Medium impact, some complexity.</li>
+        <li><strong>3</strong> – High impact, difficult or risky.</li>
+        <li><strong>5</strong> – Extreme / red flag; talk about it explicitly.</li>
+      </ul>
+
+      <p style="font-size:12px;color:#555;">
+        This is an MVP. It intentionally focuses on the core: drivers, features, baseline, and drift.
+        RFP calculators, delivery checkpoints, and decision logs can be added later once this gets real usage.
+      </p>
+    </section>
+
+    <section if.bind="activeTab === 'config'">
+      <h2>Config – Drivers</h2>
+      <p>These are the <strong>Complexity</strong> and <strong>Uncertainty</strong> drivers used for scoring.</p>
+      <div class="toolbar">
+        <button class="btn btn-primary" click.trigger="addComplexityDriver()">Add Complexity Driver</button>
+        <button class="btn btn-primary" click.trigger="addUncertaintyDriver()">Add Uncertainty Driver</button>
+      </div>
+
+      <h3>Complexity Drivers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Description</th>
+            <th class="small">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="driver of data.config.complexityDrivers; index as idx">
+            <td><input type="text" value.bind="driver.key" input.trigger="persist()" /></td>
+            <td><textarea value.bind="driver.description" input.trigger="persist()"></textarea></td>
+            <td><button class="btn btn-danger" click.trigger="removeDriver('complexity', idx)">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Uncertainty Drivers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Description</th>
+            <th class="small">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="driver of data.config.uncertaintyDrivers; index as idx">
+            <td><input type="text" value.bind="driver.key" input.trigger="persist()" /></td>
+            <td><textarea value.bind="driver.description" input.trigger="persist()"></textarea></td>
+            <td><button class="btn btn-danger" click.trigger="removeDriver('uncertainty', idx)">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section if.bind="activeTab === 'features'">
+      <h2>Features &amp; Baseline</h2>
+      <div class="toolbar">
+        <button class="btn btn-primary" click.trigger="addFeature()">Add Feature</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature ID</th>
+            <th>Name</th>
+            <th>Value (H/M/L)</th>
+            <th>T-Shirt (XS–XL)</th>
+            <th>Baseline Version</th>
+            <th>Status</th>
+            <th repeat.for="driver of data.config.complexityDrivers">${driver.key}</th>
+            <th>Complexity Total</th>
+            <th>Band</th>
+            <th repeat.for="driver of data.config.uncertaintyDrivers">${driver.key}</th>
+            <th>Uncertainty Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="item of featuresWithCalculations">
+            <td><input type="text" value.bind="item.feature.id" input.trigger="persist()" /></td>
+            <td><input type="text" value.bind="item.feature.name" input.trigger="persist()" /></td>
+            <td><input type="text" value.bind="item.feature.valueRating" input.trigger="persist()" /></td>
+            <td><input type="text" value.bind="item.feature.tshirtSize" input.trigger="persist()" /></td>
+            <td><input type="text" value.bind="item.feature.baselineVersion" input.trigger="persist()" /></td>
+            <td><input type="text" value.bind="item.feature.status" input.trigger="persist()" /></td>
+            <td repeat.for="driver of data.config.complexityDrivers">
+              <select value.bind="item.feature.complexityScores[complexityKey(driver)]" change.trigger="persist()">
+                <option model.bind="" value=""></option>
+                <option repeat.for="score of scoreScale" model.bind="score">${score}</option>
+              </select>
+            </td>
+            <td>${item.complexityTotal}</td>
+            <td><span class.bind="bandClass(complexityBand(item.complexityTotal))">${complexityBand(item.complexityTotal)}</span></td>
+            <td repeat.for="driver of data.config.uncertaintyDrivers">
+              <select value.bind="item.feature.uncertaintyScores[uncertaintyKey(driver)]" change.trigger="persist()">
+                <option model.bind="" value=""></option>
+                <option repeat.for="score of scoreScale" model.bind="score">${score}</option>
+              </select>
+            </td>
+            <td>${item.uncertaintyTotal}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-info">
+        <strong>Tip:</strong> Complexity band is derived from total complexity:
+        <span class="tag tag-low">Low</span> (0–3),
+        <span class="tag tag-med">Medium</span> (4–7),
+        <span class="tag tag-high">High</span> (8–12),
+        <span class="tag tag-extreme">Extreme</span> (13+).
+      </div>
+    </section>
+
+    <section if.bind="activeTab === 'drift'">
+      <h2>Drift &amp; Signals</h2>
+      <p>This view compares the <strong>current</strong> complexity/uncertainty of each feature to its <strong>stored baseline snapshot</strong>. Use it to detect early where things diverge.</p>
+      <div class="toolbar">
+        <button class="btn" click.trigger="snapshotBaseline()">Snapshot current as baseline (vX)</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature ID</th>
+            <th>Name</th>
+            <th>Baseline Version</th>
+            <th>Baseline Complexity</th>
+            <th>Current Complexity</th>
+            <th>Drift (Abs)</th>
+            <th>Drift (%)</th>
+            <th>Baseline Uncertainty</th>
+            <th>Current Uncertainty</th>
+            <th>Uncertainty Δ</th>
+            <th>Signal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="feature of data.features">
+            <td>${feature.id}</td>
+            <td>${feature.name}</td>
+            <td>${driftFor(feature).baseline.version}</td>
+            <td>${driftFor(feature).baseline.complexityTotal}</td>
+            <td>${driftFor(feature).currentCT}</td>
+            <td>${driftFor(feature).driftAbs}</td>
+            <td>${driftFor(feature).baseline.complexityTotal ? (driftFor(feature).driftPct * 100).toFixed(1) + '%': ''}</td>
+            <td>${driftFor(feature).baseline.uncertaintyTotal}</td>
+            <td>${driftFor(feature).currentUT}</td>
+            <td>${driftFor(feature).uncertDelta}</td>
+            <td>${driftFor(feature).signal}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-warning">
+        As a guideline:
+        <ul>
+          <li>~10–25% complexity drift → early warning.</li>
+          <li>&gt;25–30% drift → consider scope / timeline / team adjustments.</li>
+          <li>Uncertainty should normally go down over time; if it goes up, discovery is incomplete.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</template>

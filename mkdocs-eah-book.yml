@@ -3,7 +3,7 @@ site_description: "A unified system for improving predictability, reducing deliv
 site_author: "Viktor Jevdokimov, Vilnius, Lithuania"
 copyright: "© 2025 3in3.dev"
 
-docs_dir: docs
+docs_dir: book
 
 theme:
   name: material

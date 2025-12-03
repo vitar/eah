@@ -71,7 +71,7 @@ jobs:
       - name: Build site and PDF
         run: |
           if [ ! -d dist/site ]; then
-            mkdocs build --strict -f mkdocs.yml --site-dir dist/site
+            mkdocs build --strict -f mkdocs-eah-book.yml --site-dir dist/site
           fi
 
 #      - name: Build GPT knowledge bundle
