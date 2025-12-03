@@ -1,0 +1,2158 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A unified system for improving predictability, reducing delivery risk, and aligning expectations across the full software lifecycle.">
+      
+      
+        <meta name="author" content="Viktor Jevdokimov, Vilnius, Lithuania">
+      
+      
+      
+        <link rel="prev" href="../208-faq/">
+      
+      
+        <link rel="next" href="../210-faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It? - Estimation Alignment Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+    // Move the button into the actual header container on every page
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('pdf-download');
+      var target = document.querySelector('.md-header .md-header__inner');
+      if (btn && target && !target.contains(btn)) target.appendChild(btn);
+    });
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-happens-when-new-scope-appears-mid-project-how-do-we-score-track-and-communicate-it" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Estimation Alignment Hub" class="md-header__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estimation Alignment Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+
+  <a id="pdf-download"
+     class="md-header__button md-icon"
+     href="../pdf/eah.pdf"
+     title="Download PDF"
+     aria-label="Download PDF">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
+  </a>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Estimation Alignment Hub" class="md-nav__button md-logo" aria-label="Estimation Alignment Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Estimation Alignment Hub
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRO
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estimation Alignment Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../010-quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MODEL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MODEL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complexity &amp; Uncertainty Model for Estimation Alignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110-map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translation Map: Connecting Estimation Methods Across the Delivery Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120-scoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complexity &amp; Uncertainty Scoring Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130-diagnostic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estimation &amp; Delivery Diagnostic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Stages Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FAQ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../200-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick FAQ Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../201-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How This Model Fits With Existing RFP and Fixed-Bid Estimation Processes?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Do We Prevent Story Point Inflation or Re-Estimation Games?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../203-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Who Is Responsible for Scoring Complexity &amp; Uncertainty — and How Often Do We Update the Baseline?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../204-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Do We Handle Complexity Drift Without Triggering Client Escalations or Immediate Renegotiation?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../205-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Does This Model Scale in Multi-Team or Multi-Vendor Environments?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../206-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Estimation Aligns Across Dual-Track Scrum (Discovery + Delivery)?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../207-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Does Tracking Complexity and Uncertainty Increase Overhead? How Do We Keep It Lightweight?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../208-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Matters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Why This Question Matters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failure-mode-a-absorb-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Mode A — Absorb everything
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-mode-b-reject-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Mode B — Reject everything
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-principle-new-scope-enters-the-system-the-same-way-as-original-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core Principle: New Scope Enters the System the Same Way as Original Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-when-new-scope-appears-there-are-three-required-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. When New Scope Appears, There Are Three Required Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. When New Scope Appears, There Are Three Required Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-score-the-new-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Score the new scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-compare-against-the-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Compare against the baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-present-options-and-trade-offs-to-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Present options and trade-offs to the client
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-step-1-score-the-new-scope-complexity-uncertainty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Step 1 — Score the New Scope (Complexity + Uncertainty)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Step 1 — Score the New Scope (Complexity + Uncertainty)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexity-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexity drivers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncertainty-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uncertainty drivers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-step-2-compare-the-new-scope-against-the-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Step 2 — Compare the New Scope Against the Baseline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Step 2 — Compare the New Scope Against the Baseline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-scope-becomes-one-of-four-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New scope becomes one of four categories:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-step-3-present-clear-options-to-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Step 3 — Present Clear Options to the Client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Step 3 — Present Clear Options to the Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-new-scope-fits-into-dual-track-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. How New Scope Fits Into Dual-Track Scrum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. How New Scope Fits Into Dual-Track Scrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovery-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discovery Track
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivery-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery Track
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-pm-and-pl-share-the-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. How PM and PL Share the Work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. How PM and PL Share the Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pm-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PM responsibilities:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pl-em-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PL / EM responsibilities:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-how-this-model-reduces-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. How This Model Reduces Conflict
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. How This Model Reduces Conflict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-how-3sf-supports-new-scope-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. How 3SF Supports New Scope Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. How 3SF Supports New Scope Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engagement-line-client-vendor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engagement Line (client ↔ vendor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivery-line-vendor-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery Line (vendor ↔ product)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-line-product-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value Line (product ↔ client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../210-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How Do We Handle Contradictions Between Estimation Methods — FTEs, Story Points, Flow Metrics, and Forecasts?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../211-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When and How to Use Common Estimation Methods (T-Shirt, Story Points, PERT/Statistical PERT, etc.) — And How They Align Through the Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-why-this-question-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why This Question Matters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Why This Question Matters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#failure-mode-a-absorb-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Mode A — Absorb everything
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-mode-b-reject-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Mode B — Reject everything
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-principle-new-scope-enters-the-system-the-same-way-as-original-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Core Principle: New Scope Enters the System the Same Way as Original Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-when-new-scope-appears-there-are-three-required-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. When New Scope Appears, There Are Three Required Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. When New Scope Appears, There Are Three Required Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-score-the-new-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Score the new scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-compare-against-the-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Compare against the baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-present-options-and-trade-offs-to-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Present options and trade-offs to the client
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-step-1-score-the-new-scope-complexity-uncertainty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Step 1 — Score the New Scope (Complexity + Uncertainty)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Step 1 — Score the New Scope (Complexity + Uncertainty)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexity-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complexity drivers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncertainty-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uncertainty drivers:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-step-2-compare-the-new-scope-against-the-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Step 2 — Compare the New Scope Against the Baseline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Step 2 — Compare the New Scope Against the Baseline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#evaluate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluate:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-scope-becomes-one-of-four-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New scope becomes one of four categories:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-step-3-present-clear-options-to-the-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Step 3 — Present Clear Options to the Client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Step 3 — Present Clear Options to the Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example structure:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-how-new-scope-fits-into-dual-track-scrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. How New Scope Fits Into Dual-Track Scrum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. How New Scope Fits Into Dual-Track Scrum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovery-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discovery Track
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivery-track" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery Track
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-how-pm-and-pl-share-the-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. How PM and PL Share the Work
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. How PM and PL Share the Work">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pm-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PM responsibilities:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pl-em-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PL / EM responsibilities:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-how-this-model-reduces-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. How This Model Reduces Conflict
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. How This Model Reduces Conflict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With the model:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-how-3sf-supports-new-scope-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. How 3SF Supports New Scope Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. How 3SF Supports New Scope Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engagement-line-client-vendor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engagement Line (client ↔ vendor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delivery-line-vendor-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delivery Line (vendor ↔ product)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value-line-product-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Value Line (product ↔ client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="what-happens-when-new-scope-appears-mid-project-how-do-we-score-track-and-communicate-it"><strong>What Happens When New Scope Appears Mid-Project — How Do We Score, Track, and Communicate It?</strong><a class="headerlink" href="#what-happens-when-new-scope-appears-mid-project-how-do-we-score-track-and-communicate-it" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>When new scope appears, we score it using the same complexity and uncertainty drivers, compare it against the baseline, and present clear trade-off options to the client.<br />
+This keeps delivery stable, protects the team, and turns scope changes into professional, data-driven decisions — not disruption.</strong></p>
+</blockquote>
+<hr />
+<p><em>A structured way to handle scope additions without chaos, conflict, or timeline collapse.</em></p>
+<hr />
+<h2 id="1-why-this-question-matters"><strong>1. Why This Question Matters</strong><a class="headerlink" href="#1-why-this-question-matters" title="Permanent link">&para;</a></h2>
+<p>Every real project experiences mid-flight scope additions:</p>
+<ul>
+<li>new features</li>
+<li>new workflows</li>
+<li>new integrations</li>
+<li>new compliance requirements</li>
+<li>new UX needs</li>
+<li>new stakeholder requests</li>
+<li>“can we just add X?”</li>
+<li>“we forgot Y”</li>
+<li>“we discovered Z during delivery”</li>
+</ul>
+<p>The challenge is not the new scope itself — it’s the <em>disruption</em> it causes.</p>
+<p>Most teams fall into one of two failure modes:</p>
+<h3 id="failure-mode-a-absorb-everything"><strong>Failure Mode A — Absorb everything</strong><a class="headerlink" href="#failure-mode-a-absorb-everything" title="Permanent link">&para;</a></h3>
+<p>→ hidden debt
+→ collapsing timelines
+→ burnout
+→ failed expectations
+→ eroded trust</p>
+<h3 id="failure-mode-b-reject-everything"><strong>Failure Mode B — Reject everything</strong><a class="headerlink" href="#failure-mode-b-reject-everything" title="Permanent link">&para;</a></h3>
+<p>→ stakeholder frustration
+→ scope battles
+→ political conflict</p>
+<p>Neither is professional.</p>
+<p>This page explains how to handle new scope using the Complexity &amp; Uncertainty Model — without collapsing the delivery system.</p>
+<hr />
+<h2 id="2-core-principle-new-scope-enters-the-system-the-same-way-as-original-scope"><strong>2. Core Principle: New Scope Enters the System the Same Way as Original Scope</strong><a class="headerlink" href="#2-core-principle-new-scope-enters-the-system-the-same-way-as-original-scope" title="Permanent link">&para;</a></h2>
+<p>Instead of treating new scope as a special case:</p>
+<blockquote>
+<p><strong>New scope is treated exactly like original scope — scored, baselined, and evaluated using the same drivers.</strong></p>
+</blockquote>
+<p>This creates:</p>
+<ul>
+<li>fairness</li>
+<li>consistency</li>
+<li>predictability</li>
+<li>transparency</li>
+</ul>
+<p>And eliminates emotional or political responses.</p>
+<hr />
+<h2 id="3-when-new-scope-appears-there-are-three-required-steps"><strong>3. When New Scope Appears, There Are Three Required Steps</strong><a class="headerlink" href="#3-when-new-scope-appears-there-are-three-required-steps" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-score-the-new-scope"><strong>Step 1 — Score the new scope</strong><a class="headerlink" href="#step-1-score-the-new-scope" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-compare-against-the-baseline"><strong>Step 2 — Compare against the baseline</strong><a class="headerlink" href="#step-2-compare-against-the-baseline" title="Permanent link">&para;</a></h3>
+<h3 id="step-3-present-options-and-trade-offs-to-the-client"><strong>Step 3 — Present options and trade-offs to the client</strong><a class="headerlink" href="#step-3-present-options-and-trade-offs-to-the-client" title="Permanent link">&para;</a></h3>
+<p>Everything flows from this.</p>
+<p>Let’s break these down.</p>
+<hr />
+<h2 id="4-step-1-score-the-new-scope-complexity-uncertainty"><strong>4. Step 1 — Score the New Scope (Complexity + Uncertainty)</strong><a class="headerlink" href="#4-step-1-score-the-new-scope-complexity-uncertainty" title="Permanent link">&para;</a></h2>
+<p>PM, BA, PD, Architect, and EM/PL quickly score the new item:</p>
+<h3 id="complexity-drivers"><strong>Complexity drivers</strong>:<a class="headerlink" href="#complexity-drivers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>integration</li>
+<li>data</li>
+<li>UX</li>
+<li>logic</li>
+<li>NFR</li>
+<li>environment</li>
+<li>external dependencies</li>
+</ul>
+<h3 id="uncertainty-drivers"><strong>Uncertainty drivers</strong>:<a class="headerlink" href="#uncertainty-drivers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>requirement clarity</li>
+<li>documentation</li>
+<li>ownership</li>
+<li>ambiguity</li>
+<li>dependency stability</li>
+</ul>
+<p>This scoring usually takes <strong>3–10 minutes</strong>, because:</p>
+<ul>
+<li>the model is simple</li>
+<li>the scoring scale is small (0–3–5)</li>
+<li>each role contributes only what they know</li>
+<li>drivers are familiar across the team</li>
+</ul>
+<p>The result is a structured assessment instead of a vague “this feels big.”</p>
+<hr />
+<h2 id="5-step-2-compare-the-new-scope-against-the-baseline"><strong>5. Step 2 — Compare the New Scope Against the Baseline</strong><a class="headerlink" href="#5-step-2-compare-the-new-scope-against-the-baseline" title="Permanent link">&para;</a></h2>
+<p>This reveals its real impact.</p>
+<h3 id="evaluate">Evaluate:<a class="headerlink" href="#evaluate" title="Permanent link">&para;</a></h3>
+<ul>
+<li>total complexity change</li>
+<li>uncertainty level</li>
+<li>integration with existing features</li>
+<li>cross-team impact</li>
+<li>drift trend</li>
+<li>value vs complexity ratio</li>
+<li>feasibility in the current release</li>
+</ul>
+<h3 id="new-scope-becomes-one-of-four-categories">New scope becomes one of four categories:<a class="headerlink" href="#new-scope-becomes-one-of-four-categories" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Meaning</th>
+<th>Example Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>High value, low complexity</strong></td>
+<td>A good add</td>
+<td>Fit into release, or swap with something bigger</td>
+</tr>
+<tr>
+<td><strong>High value, high complexity</strong></td>
+<td>Needs trade-offs</td>
+<td>Extend timeline OR drop another feature</td>
+</tr>
+<tr>
+<td><strong>Low value, low complexity</strong></td>
+<td>Opportunistic</td>
+<td>Add only if capacity allows</td>
+</tr>
+<tr>
+<td><strong>Low value, high complexity</strong></td>
+<td>Decline</td>
+<td>Move to backlog or de-scope</td>
+</tr>
+</tbody>
+</table>
+<p>Instead of “no” or “yes,” the conversation becomes <em>structured decision-making</em>.</p>
+<hr />
+<h2 id="6-step-3-present-clear-options-to-the-client"><strong>6. Step 3 — Present Clear Options to the Client</strong><a class="headerlink" href="#6-step-3-present-clear-options-to-the-client" title="Permanent link">&para;</a></h2>
+<p>The PM presents the impact <strong>factually</strong>, with <strong>choices</strong>, not demands.</p>
+<h3 id="example-structure">Example structure:<a class="headerlink" href="#example-structure" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>What changed</strong></p>
+</li>
+<li>
+<p>“New compliance workflow added.”</p>
+</li>
+<li>
+<p>“Integration with vendor X needed.”</p>
+</li>
+<li>
+<p><strong>Complexity &amp; uncertainty score</strong></p>
+</li>
+<li>
+<p>“+8 complexity, +3 uncertainty.”</p>
+</li>
+<li>
+<p><strong>Impact</strong></p>
+</li>
+<li>
+<p>“This adds 2–3 weeks of work.”</p>
+</li>
+<li>
+<p><strong>Options</strong></p>
+</li>
+<li>
+<p>Option A: extend timeline</p>
+</li>
+<li>Option B: increase capacity (if possible)</li>
+<li>Option C: replace Feature B with new Feature X</li>
+<li>
+<p>Option D: split X into a smaller version for MVP</p>
+</li>
+<li>
+<p><strong>Recommendation</strong></p>
+</li>
+<li>
+<p>backed by value × complexity analysis</p>
+</li>
+</ol>
+<p>Clients trust structured recommendations, not emotional reactions.</p>
+<hr />
+<h2 id="7-how-new-scope-fits-into-dual-track-scrum"><strong>7. How New Scope Fits Into Dual-Track Scrum</strong><a class="headerlink" href="#7-how-new-scope-fits-into-dual-track-scrum" title="Permanent link">&para;</a></h2>
+<h3 id="discovery-track"><strong>Discovery Track</strong><a class="headerlink" href="#discovery-track" title="Permanent link">&para;</a></h3>
+<p>Quickly clarifies new scope:</p>
+<ul>
+<li>requirements</li>
+<li>UX</li>
+<li>dependencies</li>
+<li>uncertainty</li>
+<li>complexity drivers</li>
+</ul>
+<h3 id="delivery-track"><strong>Delivery Track</strong><a class="headerlink" href="#delivery-track" title="Permanent link">&para;</a></h3>
+<p>Receives:</p>
+<ul>
+<li>a scored item</li>
+<li>a ready-for-delivery view</li>
+<li>a decision (include, swap, delay, decline)</li>
+</ul>
+<p>No chaos. No “urgent” interruptions.<br />
+The tracks remain synchronized.</p>
+<hr />
+<h2 id="8-how-pm-and-pl-share-the-work"><strong>8. How PM and PL Share the Work</strong><a class="headerlink" href="#8-how-pm-and-pl-share-the-work" title="Permanent link">&para;</a></h2>
+<h3 id="pm-responsibilities"><strong>PM responsibilities:</strong><a class="headerlink" href="#pm-responsibilities" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ensure new scope is captured</li>
+<li>facilitate complexity/uncertainty scoring</li>
+<li>assess value</li>
+<li>prepare trade-off options</li>
+<li>communicate with stakeholders</li>
+<li>align sequencing</li>
+<li>protect the roadmap</li>
+</ul>
+<h3 id="pl-em-responsibilities"><strong>PL / EM responsibilities:</strong><a class="headerlink" href="#pl-em-responsibilities" title="Permanent link">&para;</a></h3>
+<ul>
+<li>validate technical complexity</li>
+<li>assess delivery impact</li>
+<li>identify dependency risks</li>
+<li>propose alternative low-complexity approaches</li>
+</ul>
+<p>Together, PM + PL create a shared, unified recommendation.</p>
+<hr />
+<h2 id="9-how-this-model-reduces-conflict"><strong>9. How This Model Reduces Conflict</strong><a class="headerlink" href="#9-how-this-model-reduces-conflict" title="Permanent link">&para;</a></h2>
+<h3 id="without-the-model">Without the model:<a class="headerlink" href="#without-the-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>new scope creates panic</li>
+<li>team absorbs everything</li>
+<li>stakeholders escalate</li>
+<li>timeline slips without explanation</li>
+<li>trust erodes</li>
+</ul>
+<h3 id="with-the-model">With the model:<a class="headerlink" href="#with-the-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li>new scope is scored</li>
+<li>impact is quantified</li>
+<li>trade-offs are clear</li>
+<li>client chooses path forward</li>
+<li>timeline adjustments are grounded</li>
+<li>team feels protected</li>
+<li>stakeholders feel respected</li>
+</ul>
+<p>Everyone operates like professionals, not firefighters.</p>
+<hr />
+<h2 id="10-how-3sf-supports-new-scope-decisions"><strong>10. How 3SF Supports New Scope Decisions</strong><a class="headerlink" href="#10-how-3sf-supports-new-scope-decisions" title="Permanent link">&para;</a></h2>
+<h3 id="engagement-line-client-vendor"><strong>Engagement Line (client ↔ vendor)</strong><a class="headerlink" href="#engagement-line-client-vendor" title="Permanent link">&para;</a></h3>
+<p>The conversation becomes transparent and collaborative.</p>
+<h3 id="delivery-line-vendor-product"><strong>Delivery Line (vendor ↔ product)</strong><a class="headerlink" href="#delivery-line-vendor-product" title="Permanent link">&para;</a></h3>
+<p>Teams stay stable because new scope is structured, not disruptive.</p>
+<h3 id="value-line-product-client"><strong>Value Line (product ↔ client)</strong><a class="headerlink" href="#value-line-product-client" title="Permanent link">&para;</a></h3>
+<p>Every decision ties to value × complexity, not internal pressure or politics.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../208-faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                How Does This Model Help Us Make Scope, Sequencing, and Value-Tradeoff Decisions With Clients?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../210-faq/" class="md-footer__link md-footer__link--next" aria-label="Next: How Do We Handle Contradictions Between Estimation Methods — FTEs, Story Points, Flow Metrics, and Forecasts?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                How Do We Handle Contradictions Between Estimation Methods — FTEs, Story Points, Flow Metrics, and Forecasts?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 3in3.dev
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
